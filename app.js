@@ -34,8 +34,13 @@ const User = mongoose.model("User", userSchema);
 
 passport.use(User.createStrategy());
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(function(User, done) {
+  done(null, User);
+});
+
+passport.deserializeUser(function(User, done) {
+  done(null, User);
+});
 
 app.get("/", function(req, res){
     res.render("index");
@@ -45,9 +50,33 @@ app.get("/final", function(req, res){
     res.render("final");
 });
 
+app.get("/login", function(req, res){
+    res.render("login");
+});
+
 app.get("/logout", function(req, res){
     req.logout();
     res.redirect("/");
+});
+
+app.post("/login", function(req, res){
+
+    const user = new User({
+        mail: req.body.username,
+        password: req.body.password
+    })
+
+    req.login(user, function(err){
+        if(err){
+            console.log(err);
+            res.redirect("/");
+        }else{
+            passport.authenticate("local")(req, res, function(){
+                res.redirect("/final");
+            })
+        }
+    });
+
 });
 
 app.post("/",function(req,res){
@@ -66,4 +95,4 @@ app.post("/",function(req,res){
 
 app.listen(3000, function(req, res){
     console.log("Server is running on port 3000 ...");
-});
+}); 
