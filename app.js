@@ -24,8 +24,11 @@ mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 
 const userSchema = new mongoose.Schema({
+    fname : String,
     mail: String,
-    password: String
+    password: String,
+    dob: String,
+    gender: String
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -63,7 +66,7 @@ app.post("/login", function(req, res){
 
     const user = new User({
         mail: req.body.username,
-        password: req.body.password
+        password: req.body.password,
     })
 
     req.login(user, function(err){
@@ -81,7 +84,7 @@ app.post("/login", function(req, res){
 
 app.post("/",function(req,res){
 
-    User.register({username: req.body.username}, req.body.password, function(err, user){
+    User.register({username: req.body.username, fname: req.body.fName, dob: req.body.DOB, gender: req.body.gender}, req.body.password, function(err, user){
         if(err){
             console.log(err);
             res.redirect("/");

@@ -13,14 +13,25 @@
     <form class="form-signin" method="POST" action="/">
         <a href="#"><i class="fas fa-user-plus"></i></a>
         <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+        <label for="fullName" class="sr-only">Full Name</label>
+        <input type="text" id="fullName" name="fName" class="form-control" placeholder="Full Name" required autofocus>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <label for="dob" class="sr-only">Date of Birth</label>
+        <input type="date" id="dob" name="DOB" class="form-control" required>
+        <label for="gender" class="sr-only">Choose any</label>
+        <select id="gender-select" name="gender" class="form-control">
+            <option value="">--Please choose an option--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>\
+        </select>
         <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Sign Up</button>
         <hr>
         <a href="/login" class="btn btn-lg btn-primary btn-block mt-4">Login</a>
-        <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+        <p class="mt-5 mb-3 text-muted">&copy; 2018-2019 Sanchit Rastogi</p>
     </form>
  </body>
 </html>

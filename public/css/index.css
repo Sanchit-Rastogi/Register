@@ -53,7 +53,6 @@ border-bottom-right-radius: 0;
 border-bottom-left-radius: 0;
 }
 .form-signin input[type="password"] {
-margin-bottom: 10px;
 border-top-left-radius: 0;
 border-top-right-radius: 0;
 }
@@ -61,4 +60,45 @@ border-top-right-radius: 0;
 .fas{
     font-size: 5rem;
     padding: 30px;
+}
+
+#fullName{
+    border-radius: 10px 10px 0px 0px;
+}
+
+#inputEmail{
+    border-radius: 0px;
+    border-top: 0px;
+}
+
+#inputPassword{
+    border-radius: 0px;
+    border-bottom: 0px;
+}
+
+#dob{
+    margin: 0px;
+    border-radius: 0px;
+    border-bottom: 0px;
+}
+
+#gender-select{
+    height: 48px;
+    border-radius: 0px 0px 10px 10px;
+    -webkit-appearance: none;
+}
+
+.final-display{
+    height: 250px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    margin: auto;
+    align-items: center;
+}
+
+.final-btn{
+    width: 100px;
 }
